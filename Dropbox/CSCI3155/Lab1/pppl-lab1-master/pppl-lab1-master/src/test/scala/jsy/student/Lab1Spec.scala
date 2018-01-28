@@ -150,6 +150,8 @@ class Lab1Spec(lab1: Lab1Like) extends FlatSpec {
   val t9 = Node(Empty, 2, Node(Empty, 3, Empty))
   val t10 = Node(Node(Empty, 1, Empty), 2, Empty)
   val t11 = Node(Node(Empty, 1, Empty), 3, Empty)
+  val t12 = Node(Node(Empty, 5, Empty), 3, Empty)
+  val t13 = Node(Node(Empty, 1, Empty), 3, Node(Empty, 2, Empty))
 
   // repOk
 
@@ -160,6 +162,8 @@ class Lab1Spec(lab1: Lab1Like) extends FlatSpec {
     assert(!repOk(t3))
     assert(repOk(t4))
     assert(repOk(t5))
+    assert(!repOk(t12))
+    assert(!repOk(t13))
   }
 
   // insertion
@@ -224,6 +228,7 @@ class Lab1Spec(lab1: Lab1Like) extends FlatSpec {
 
   "eval+" should "perform addition" in {
     assert(eval("1 + 1") === 2)
+    assert(eval("3 + 0") === 3)
   }
 
   "eval-" should "perform subtraction" in {
